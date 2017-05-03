@@ -8,6 +8,7 @@
   "dependencies": {
     "bulma": "^0.4.1",
     "react": "^15.5.4",
+    "react-autosuggest": "^9.0.1",
     "react-dom": "^15.5.4",
     "react-spinkit": "^2.1.1",
     "react-table": "^5.6.0"

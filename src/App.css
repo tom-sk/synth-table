@@ -1,4 +1,7 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
-
+.test{
+    width:100px;
+    margin: 0 auto;
+}

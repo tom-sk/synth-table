@@ -1,49 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import Tabletop from '../public/js/tabletop1.3.4.js';
-import Item from './components/item.js';
+import Compare from './components/Compare.js'
+import MyTable from './components/MyTable.js'
 import 'bulma/css/bulma.css';
-import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 var Spinner = require('react-spinkit');
-
-
-const columns = [{
-
-    header: 'Make',
-    accessor: 'make',
-    filterMethod: (filter, row) => {
-      return row[filter.id].toLowerCase().includes(filter.value.toLowerCase());
-    }
-  }, {
-    header: 'Model',
-    id: 'model',
-    accessor: 'model',
-    filterMethod: (filter, row) => {
-      return row[filter.id].toLowerCase().includes(filter.value.toLowerCase());
-    }
-  }, {
-    header: 'Price',
-    accessor: 'price',
-    filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
-
-}]
-
-const MyTable = (props) => {
-	return (
-		<div>
-			<ReactTable
-				data={props.data}
-				columns={columns}
-        defaultPageSize={100}
-        showFilters={true}
-			/>
-		</div>
-	)
-}
-
-
-
 
 
 class App extends Component {
@@ -74,11 +36,16 @@ class App extends Component {
     return (
       <div className="App container">
           <h1>Synth List</h1>
-             {!this.state.isLoaded ?
-               <Spinner spinnerName='wave' /> :
-               <MyTable
-                data={this.state.synthData} />}
 
+
+         {!this.state.isLoaded ?
+           <Spinner spinnerName='wave' /> :
+           <div>
+           <Compare data={this.state.synthData}/>
+           
+           <MyTable
+            data={this.state.synthData} />
+          </div>}
       </div>
     );
   }
